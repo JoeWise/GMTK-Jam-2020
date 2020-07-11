@@ -2,13 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RaiseShieldModule : MonoBehaviour, TimoModule
+public class RaiseShieldModule : TimoModuleBase
 {
-
-    public bool taskInQueue = false;
-    public Task t;
-    public float taskLength = 5.0f;
-
     public TextMesh text;
     public bool shieldUp = false;
 
@@ -41,8 +36,8 @@ public class RaiseShieldModule : MonoBehaviour, TimoModule
                     prompt = "Raise Shield";
                 }
 
-                t = new Task(prompt, 10.0f, this);
-                AddTaskToQueue(t);
+                task = new Task(prompt, 10.0f, this);
+                AddTaskToQueue(task);
 
                 taskInQueue = true;
             }
@@ -67,16 +62,5 @@ public class RaiseShieldModule : MonoBehaviour, TimoModule
                 text.text = "Raise";
             }
         }
-    }
-
-    public void AddTaskToQueue(Task t)
-    {
-        TaskManager.Instance.AddTask(t);
-    }
-
-    public void OnTaskSatisfied()
-    {
-        t.completed = true;
-        taskInQueue = false;
     }
 }

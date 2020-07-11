@@ -45,6 +45,8 @@ public class TaskManager : Singleton<TaskManager>
         {
             if(currentTasks[i] != null && currentTasks[i].completed)
             {
+                currentTasks[i].originatingModule.SetTaskInQueue(false);
+
                 currentTasks[i] = null;
                 taskTexts[i].text = "";
             }
@@ -63,10 +65,10 @@ public class Task
 {
     public string prompt;
     public float length;
-    public TimoModule originatingModule;
+    public TimoModuleBase originatingModule;
     public bool completed;
 
-    public Task (string prompt, float length, TimoModule originatingModule)
+    public Task (string prompt, float length, TimoModuleBase originatingModule)
     {
         this.prompt = prompt;
         this.length = length;

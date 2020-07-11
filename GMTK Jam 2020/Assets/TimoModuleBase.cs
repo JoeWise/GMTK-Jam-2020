@@ -2,14 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MedicalDiagnosisModule : TimoModuleBase
+public class TimoModuleBase : MonoBehaviour
 {
     public bool taskInQueue = false;
-    public Task t;
+    public Task task;
     public float taskLength = 5.0f;
-
-    public TextMesh text;
-    
 
     // Start is called before the first frame update
     void Start()
@@ -20,20 +17,18 @@ public class MedicalDiagnosisModule : TimoModuleBase
     // Update is called once per frame
     void Update()
     {
-        if (!taskInQueue)
-        {
-            
-        }
+        
     }
 
     public void AddTaskToQueue(Task t)
     {
         TaskManager.Instance.AddTask(t);
+        taskInQueue = true;
     }
 
     public void OnTaskSatisfied()
     {
-        t.completed = true;
+        task.completed = true;
     }
 
     public void SetTaskInQueue(bool b)
