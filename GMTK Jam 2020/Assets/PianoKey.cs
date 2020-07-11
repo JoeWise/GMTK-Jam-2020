@@ -26,6 +26,6 @@ public class PianoKey : MonoBehaviour
 
         keyStrikes += 1;
         
-        //MusicModule.pianoSource.PlayOneShot(note);
+        MusicModule.pianoSource.PlayOneShot(note);
     }
 }
