@@ -2,12 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PianoKey : MonoBehaviour
+public class Window : MonoBehaviour
 {
-    public static int keyStrikes;
-
-    public AudioClip note;
-
     // Start is called before the first frame update
     void Start()
     {
@@ -20,12 +16,8 @@ public class PianoKey : MonoBehaviour
         
     }
 
-    public void KeyHit()
+    public void CloseWindow()
     {
-        Debug.Log("Key Hit");
-
-        keyStrikes += 1;
-        
-        //MusicModule.pianoSource.PlayOneShot(note);
+        this.gameObject.SetActive(false);
     }
 }
