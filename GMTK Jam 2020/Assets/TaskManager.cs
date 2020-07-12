@@ -36,9 +36,11 @@ public class TaskManager : Singleton<TaskManager>
             // check if there are any empty slots that we can fill
             if (currentTasks[i] == null && task_q.Count > 0)
             {
-                Debug.Log("Adding Task " + i.ToString());
+                //Debug.Log("Adding Task " + i.ToString());
                 currentTasks[i] = task_q.Dequeue();
                 taskTexts[i].text = currentTasks[i].prompt;
+
+                currentTasks[i].currState = Task.state.active;
 
                 taskTimers[i].gameObject.SetActive(true);
                 taskTimers[i].ResetTimer();
@@ -51,9 +53,11 @@ public class TaskManager : Singleton<TaskManager>
                 //if the task was completed successfully
                 if(currentTasks[i].completed)
                 {
+                    currentTasks[i].currState = Task.state.success;
+
                     //remove the task
                     currentTasks[i].originatingModule.SetTaskInQueue(false);
-
+               
                     currentTasks[i] = null;
                     taskTexts[i].text = "";
 
@@ -73,6 +77,8 @@ public class TaskManager : Singleton<TaskManager>
                 //if time ran out
                 else if(taskTimers[i].finished)
                 {
+                    currentTasks[i].currState = Task.state.fail;
+
                     //remove the task
                     currentTasks[i].originatingModule.SetTaskInQueue(false);
 
@@ -105,17 +111,22 @@ public class TaskManager : Singleton<TaskManager>
 
 }
 
+[System.Serializable]
 public class Task
 {
     public string prompt;
     public float length;
     public TimoModuleBase originatingModule;
     public bool completed;
+    public enum state { waiting, active, success, fail };
+    public state currState;
 
     public Task (string prompt, float length, TimoModuleBase originatingModule)
     {
         this.prompt = prompt;
         this.length = length;
         this.originatingModule = originatingModule;
+
+        currState = state.waiting;
     }
 }

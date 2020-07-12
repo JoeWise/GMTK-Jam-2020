@@ -25,7 +25,7 @@ public class LightsModule : TimoModuleBase
 
             if (roll == 50)
             {
-                Debug.Log("Adding music task");
+                Debug.Log("Adding lights task");
 
                 curr = switches[Random.Range(0, switches.Length)];
 

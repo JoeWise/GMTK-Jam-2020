@@ -27,13 +27,14 @@ public class TimoModuleBase : MonoBehaviour
         taskInQueue = true;
     }
 
-    public void OnTaskSatisfied()
+    public virtual void OnTaskSatisfied()
     {
         task.completed = true;
         window.CloseWindow();
     }
 
-    public void SetTaskInQueue(bool b)
+
+    public virtual void SetTaskInQueue(bool b)
     {
         taskInQueue = b;
     }
