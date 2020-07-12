@@ -2655,6 +2655,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 603193752583047369, guid: 1a7e22a99cb8a2e4ea9438cf0078a728,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 3.215389
+      objectReference: {fileID: 0}
     - target: {fileID: 1495150055010810111, guid: 1a7e22a99cb8a2e4ea9438cf0078a728,
         type: 3}
       propertyPath: m_Mesh
