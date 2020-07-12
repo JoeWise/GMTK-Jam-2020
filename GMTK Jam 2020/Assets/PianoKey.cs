@@ -22,7 +22,7 @@ public class PianoKey : MonoBehaviour
 
     public void KeyHit()
     {
-        Debug.Log("Key Hit");
+        //Debug.Log("Key Hit");
 
         keyStrikes += 1;
         

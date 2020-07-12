@@ -2,61 +2,105 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Pixelplacement;
+using TMPro;
 
 public class TaskManager : Singleton<TaskManager>
 {
     public Queue<Task> task_q;
 
     public Task[] currentTasks;
-    public TextMesh[] taskTexts;
+    public TextMeshPro[] taskTexts;
+    public TaskTimer[] taskTimers;
+    public TextMeshPro score;
+    public int completed = 0;
+    public int best = 0;
+    public int failed = 0;
 
     // Start is called before the first frame update
     void Start()
     {
         task_q = new Queue<Task>();
         currentTasks = new Task[3];
+
+        completed = 0;
+        failed = 0;
+
+        updateScoreText();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (currentTasks[0] == null && task_q.Count > 0)
+        for (int i = 0; i < currentTasks.Length; i++)
         {
-            Debug.Log("Adding Task 1");
-            currentTasks[0] = task_q.Dequeue();
-            taskTexts[0].text = currentTasks[0].prompt;
-        }
-
-        if (currentTasks[1] == null && task_q.Count > 0)
-        {
-            Debug.Log("Adding Task 2");
-            currentTasks[1] = task_q.Dequeue();
-            taskTexts[1].text = currentTasks[1].prompt;
-        }
-
-        if (currentTasks[2] == null && task_q.Count > 0)
-        {
-            Debug.Log("Adding Task 3");
-            currentTasks[2] = task_q.Dequeue();
-            taskTexts[2].text = currentTasks[2].prompt;
-        }
-
-        for(int i = 0; i < 3; i++)
-        {
-            if(currentTasks[i] != null && currentTasks[i].completed)
+            // check if there are any empty slots that we can fill
+            if (currentTasks[i] == null && task_q.Count > 0)
             {
-                currentTasks[i].originatingModule.SetTaskInQueue(false);
+                Debug.Log("Adding Task " + i.ToString());
+                currentTasks[i] = task_q.Dequeue();
+                taskTexts[i].text = currentTasks[i].prompt;
 
-                currentTasks[i] = null;
-                taskTexts[i].text = "";
+                taskTimers[i].gameObject.SetActive(true);
+                taskTimers[i].ResetTimer();
+                taskTimers[i].StartCountdown(currentTasks[i].length);
+            }
+
+            // check if there are any filled slots that we can empty
+            if (currentTasks[i] != null)
+            {
+                //if the task was completed successfully
+                if(currentTasks[i].completed)
+                {
+                    //remove the task
+                    currentTasks[i].originatingModule.SetTaskInQueue(false);
+
+                    currentTasks[i] = null;
+                    taskTexts[i].text = "";
+
+                    //remove timer
+                    taskTimers[i].gameObject.SetActive(false);
+
+                    // increment score
+                    completed += 1;
+
+                    if (completed > best)
+                    {
+                        best = completed;
+                    }
+
+                    updateScoreText();
+                }
+                //if time ran out
+                else if(taskTimers[i].finished)
+                {
+                    //remove the task
+                    currentTasks[i].originatingModule.SetTaskInQueue(false);
+
+                    currentTasks[i] = null;
+                    taskTexts[i].text = "";
+
+                    //remove timer
+                    taskTimers[i].gameObject.SetActive(false);
+
+                    //update fail count
+                    failed += 1;
+                    updateScoreText();
+                    
+                }
             }
         }
-
     }
 
     public void AddTask(Task t)
     {
         task_q.Enqueue(t);
+    }
+
+    public void updateScoreText()
+    {
+        string scoreText = "Completed: " + completed.ToString() + "\nBest: " + best.ToString() + "\nFailed: " + failed.ToString();
+
+        score.text = scoreText;
     }
 
 }
