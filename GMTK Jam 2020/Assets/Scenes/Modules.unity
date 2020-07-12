@@ -1578,6 +1578,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1717783968}
   - component: {fileID: 1717783967}
+  - component: {fileID: 1717783969}
+  - component: {fileID: 1717783970}
   m_Layer: 0
   m_Name: Audio
   m_TagString: Untagged
@@ -1597,7 +1599,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.1
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -1695,6 +1697,35 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1717783969
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1717783966}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dce6e69e025d4064a971e9ff23f14464, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _dontDestroyOnLoad: 0
+  audioSource: {fileID: 1717783967}
+  fail: {fileID: 8300000, guid: 636f511c4fc94524f8ecd81e832f6bca, type: 3}
+  succeed: {fileID: 8300000, guid: b1ec39a57fd92e545950411e30f100c3, type: 3}
+  newTask: {fileID: 8300000, guid: 08f6f5a2d2e0d3142998244166f75a8e, type: 3}
+--- !u!114 &1717783970
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1717783966}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 55938fb1577dd4ad3af7e994048c86f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1809398333 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8858310187546559193, guid: 1a7e22a99cb8a2e4ea9438cf0078a728,
@@ -1741,7 +1772,7 @@ PrefabInstance:
     - target: {fileID: 5810183471682711626, guid: a1f4b17dc29522648bc7e14adf35d533,
         type: 3}
       propertyPath: taskLength
-      value: 15
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 5810183471682711627, guid: a1f4b17dc29522648bc7e14adf35d533,
         type: 3}
@@ -2206,7 +2237,7 @@ PrefabInstance:
     - target: {fileID: 5226328740315918012, guid: cfc607782d38c264b8581f7fde475c9e,
         type: 3}
       propertyPath: taskLength
-      value: 15
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 7068992980392865514, guid: cfc607782d38c264b8581f7fde475c9e,
         type: 3}
@@ -2470,7 +2501,7 @@ PrefabInstance:
     - target: {fileID: 8840132657253506340, guid: 046abc9317595b940ad75542a8bbd92f,
         type: 3}
       propertyPath: taskLength
-      value: 15
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 8840132657253506343, guid: 046abc9317595b940ad75542a8bbd92f,
         type: 3}
