@@ -11,6 +11,7 @@ public class SFXManager : Singleton<SFXManager>
     public AudioClip succeed;
     public AudioClip newTask;
     public AudioClip iconSelected;
+    public AudioClip gameOver;
 
 
 
@@ -44,5 +45,10 @@ public class SFXManager : Singleton<SFXManager>
     public void PlayIconSelected()
     {
         audioSource.PlayOneShot(iconSelected);
+    }
+
+    public void PlayGameOver()
+    {
+        audioSource.PlayOneShot(gameOver, 1.0f);
     }
 }

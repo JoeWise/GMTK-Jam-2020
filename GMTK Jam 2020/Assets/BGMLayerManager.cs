@@ -50,14 +50,19 @@ public class BGMLayerManager : MonoBehaviour
 
                 break;
 
-            default:
+            case 4:
                 mixer.SetFloat("AmbVol", 0);
                 mixer.SetFloat("L1Vol", 0);
                 mixer.SetFloat("RadioVol", 0);
                 mixer.SetFloat("FinalVol", 0);
 
                 break;
-
+            case 5:
+                mixer.SetFloat("AmbVol", -80);
+                mixer.SetFloat("L1Vol", -80);
+                mixer.SetFloat("RadioVol", -10);
+                mixer.SetFloat("FinalVol", -80);
+                break;
 
         }
     }

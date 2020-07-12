@@ -46,6 +46,7 @@ public class NumbersModule : TimoModuleBase
             if(lastNumber == curr.answer)
             {
                 OnTaskSatisfied();
+                lastNumber = "";
             }
         }
     }

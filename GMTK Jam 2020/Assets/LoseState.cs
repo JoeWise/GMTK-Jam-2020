@@ -10,6 +10,7 @@ public class LoseState : State
     private void OnEnable()
     {
         EndScreen.SetActive(true);
+        SFXManager.Instance.PlayGameOver();
     }
 
     private void OnDisable()
