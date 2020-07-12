@@ -2043,7 +2043,7 @@ MonoBehaviour:
   keyInput: 43010000
   _unityEventsFolded: 1
   _scaleResponseFolded: 0
-  _colorResponseFolded: 0
+  _colorResponseFolded: 1
   applyColor: 1
   applyScale: 0
   collisionLayerMask:
@@ -2051,8 +2051,8 @@ MonoBehaviour:
     m_Bits: 4294967295
   colorRendererTarget: {fileID: 8840132657269845690}
   colorImageTarget: {fileID: 0}
-  selectedColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
-  pressedColor: {r: 0, g: 1, b: 0, a: 1}
+  selectedColor: {r: 1, g: 1, b: 1, a: 1}
+  pressedColor: {r: 0.7264151, g: 0.7264151, b: 0.7264151, a: 1}
   disabledColor: {r: 0.5, g: 0.5, b: 0.5, a: 0.5}
   colorDuration: 0.1
   scaleTarget: {fileID: 8840132657269845694}
@@ -2218,9 +2218,9 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   keyInput: 43010000
-  _unityEventsFolded: 1
+  _unityEventsFolded: 0
   _scaleResponseFolded: 0
-  _colorResponseFolded: 0
+  _colorResponseFolded: 1
   applyColor: 1
   applyScale: 0
   collisionLayerMask:
@@ -2228,8 +2228,8 @@ MonoBehaviour:
     m_Bits: 4294967295
   colorRendererTarget: {fileID: 8840132657351331958}
   colorImageTarget: {fileID: 0}
-  selectedColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
-  pressedColor: {r: 0, g: 1, b: 0, a: 1}
+  selectedColor: {r: 0.7735849, g: 0.75534, b: 0.75534, a: 1}
+  pressedColor: {r: 0.6132076, g: 0.6103151, b: 0.6103151, a: 1}
   disabledColor: {r: 0.5, g: 0.5, b: 0.5, a: 0.5}
   colorDuration: 0.1
   scaleTarget: {fileID: 8840132657351331965}
