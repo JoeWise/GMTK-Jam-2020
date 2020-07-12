@@ -139,6 +139,8 @@ public class TaskManager : Singleton<TaskManager>
             //remove timer
             taskTimers[i].gameObject.SetActive(false);
         }
+
+        task_q.Clear();
     }
 }
 
