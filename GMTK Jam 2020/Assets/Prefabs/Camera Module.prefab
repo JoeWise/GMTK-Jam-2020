@@ -25,7 +25,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 909170145243017999}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.18, y: -0, z: 3.11}
+  m_LocalPosition: {x: -0.18, y: -0, z: 3.76}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 909170145827595973}
@@ -398,6 +398,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   catVisible: 0
+  displayCat: 0
   cats:
   - {fileID: 5092776545206811814}
   - {fileID: 5092776545606914445}
@@ -634,7 +635,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5810183471682711630
 Transform:
   m_ObjectHideFlags: 0
@@ -766,14 +767,15 @@ MonoBehaviour:
     originatingModule: {fileID: 0}
     completed: 0
     currState: 0
-  taskLength: 5
+  taskLength: 12
   window: {fileID: 3030815646838681565}
   odds: 500
   prompts:
-  - Hey TImo, take a picture of my cat
+  - Hey Timo, take a picture of my cat
   - Hey Timo, show me a cat picture
   - Hey Timo, what is my cat doing?
   picTaken: 0
+  catEnvironment: {fileID: 909170146927001589}
 --- !u!1 &5810183471847652624
 GameObject:
   m_ObjectHideFlags: 0
@@ -984,7 +986,7 @@ PrefabInstance:
     - target: {fileID: 5346661330939893034, guid: f6dca36679ac14a48913344ea5b1334e,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -1.04
+      value: -0.78
       objectReference: {fileID: 0}
     - target: {fileID: 5346661330939893034, guid: f6dca36679ac14a48913344ea5b1334e,
         type: 3}
@@ -1029,17 +1031,17 @@ PrefabInstance:
     - target: {fileID: 5346661330939893034, guid: f6dca36679ac14a48913344ea5b1334e,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.26757988
+      value: 0.35403493
       objectReference: {fileID: 0}
     - target: {fileID: 5346661330939893034, guid: f6dca36679ac14a48913344ea5b1334e,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.32474366
+      value: 0.42966834
       objectReference: {fileID: 0}
     - target: {fileID: 5346661330939893034, guid: f6dca36679ac14a48913344ea5b1334e,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.5351614
+      value: 0.708072
       objectReference: {fileID: 0}
     - target: {fileID: 5346661330939893037, guid: f6dca36679ac14a48913344ea5b1334e,
         type: 3}

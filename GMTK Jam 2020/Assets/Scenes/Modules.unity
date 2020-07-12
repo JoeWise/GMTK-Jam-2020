@@ -1827,55 +1827,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 909170145243017998, guid: a1f4b17dc29522648bc7e14adf35d533,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 3.76
-      objectReference: {fileID: 0}
-    - target: {fileID: 5092776547116329655, guid: a1f4b17dc29522648bc7e14adf35d533,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.35403493
-      objectReference: {fileID: 0}
-    - target: {fileID: 5092776547116329655, guid: a1f4b17dc29522648bc7e14adf35d533,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.42966834
-      objectReference: {fileID: 0}
-    - target: {fileID: 5092776547116329655, guid: a1f4b17dc29522648bc7e14adf35d533,
-        type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.708072
-      objectReference: {fileID: 0}
-    - target: {fileID: 5092776547116329655, guid: a1f4b17dc29522648bc7e14adf35d533,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -0.78
-      objectReference: {fileID: 0}
-    - target: {fileID: 5810183471665284045, guid: a1f4b17dc29522648bc7e14adf35d533,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5810183471682711626, guid: a1f4b17dc29522648bc7e14adf35d533,
-        type: 3}
-      propertyPath: taskLength
-      value: 12
-      objectReference: {fileID: 0}
-    - target: {fileID: 5810183471682711626, guid: a1f4b17dc29522648bc7e14adf35d533,
-        type: 3}
-      propertyPath: prompts.Array.data[0]
-      value: Hey Timo, take a picture of my cat
-      objectReference: {fileID: 0}
     - target: {fileID: 5810183471682711627, guid: a1f4b17dc29522648bc7e14adf35d533,
         type: 3}
       propertyPath: m_Name
       value: Camera Module
-      objectReference: {fileID: 0}
-    - target: {fileID: 5810183471682711627, guid: a1f4b17dc29522648bc7e14adf35d533,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5810183471682711630, guid: a1f4b17dc29522648bc7e14adf35d533,
         type: 3}

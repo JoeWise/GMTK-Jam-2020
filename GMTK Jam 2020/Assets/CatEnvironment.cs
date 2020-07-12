@@ -6,6 +6,8 @@ public class CatEnvironment : MonoBehaviour
 {
     public bool catVisible;
 
+    public bool displayCat;
+
     public GameObject[] cats;
 
     private void OnEnable()
@@ -41,17 +43,24 @@ public class CatEnvironment : MonoBehaviour
     {
         while (true)
         {
-            yield return new WaitForSeconds(Random.Range(0.5f, 1.5f));
+            if (displayCat)
+            {
+                yield return new WaitForSeconds(Random.Range(0.5f, 1.5f));
 
-            int i = Random.Range(0, 3);
+                int i = Random.Range(0, 3);
 
-            cats[i].SetActive(true);
-            catVisible = true;
+                cats[i].SetActive(true);
+                catVisible = true;
 
-            yield return new WaitForSeconds(Random.Range(1.5f, 3f));
+                yield return new WaitForSeconds(Random.Range(1.5f, 3f));
 
-            cats[i].SetActive(false);
-            catVisible = false;
+                cats[i].SetActive(false);
+                catVisible = false;
+            }
+            else
+            {
+                yield return null;
+            }
         }
     }
 }

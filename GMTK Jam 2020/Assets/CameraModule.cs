@@ -9,6 +9,8 @@ public class CameraModule : TimoModuleBase
 
     public bool picTaken = false;
 
+    public CatEnvironment catEnvironment;
+
     private void OnEnable()
     {
         CreateTask();
@@ -25,6 +27,8 @@ public class CameraModule : TimoModuleBase
     {
         if (!taskInQueue)
         {
+            catEnvironment.displayCat = false;
+
             float roll = Random.Range(1, odds);
             //Debug.Log("roll: " + roll.ToString());
 
@@ -35,6 +39,11 @@ public class CameraModule : TimoModuleBase
         }
         else
         {
+            if (task.currState == Task.state.active)
+            {
+                catEnvironment.displayCat = true;
+            }
+
             if (picTaken)
             {
                 OnTaskSatisfied();
