@@ -7,7 +7,7 @@ public class TimoModuleBase : MonoBehaviour
     public bool taskInQueue = false;
     public Task task;
     public float taskLength = 5.0f;
-    public GameObject window;
+    public Window window;
 
     // Start is called before the first frame update
     void Start()
@@ -30,7 +30,7 @@ public class TimoModuleBase : MonoBehaviour
     public void OnTaskSatisfied()
     {
         task.completed = true;
-        window.SetActive(false);
+        window.CloseWindow();
     }
 
     public void SetTaskInQueue(bool b)

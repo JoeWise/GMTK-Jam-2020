@@ -22,5 +22,6 @@ public class ModuleIcon : MonoBehaviour
     public void OpenWindow()
     {
         window.SetActive(true);
+        WindowManager.Instance.DisableIcons();
     }
 }

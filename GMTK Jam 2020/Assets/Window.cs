@@ -18,6 +18,8 @@ public class Window : MonoBehaviour
 
     public void CloseWindow()
     {
+        WindowManager.Instance.EnableIcons();
         this.gameObject.SetActive(false);
+
     }
 }

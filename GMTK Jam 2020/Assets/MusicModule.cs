@@ -6,6 +6,8 @@ public class MusicModule : TimoModuleBase
 {
     public static AudioSource pianoSource;
 
+    public string[] prompts;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -24,7 +26,7 @@ public class MusicModule : TimoModuleBase
             {
                 Debug.Log("Adding music task");
 
-                string prompt = "Hey Timo, play me a song";
+                string prompt = prompts[Random.Range(0, prompts.Length)];
 
                 task = new Task(prompt, 10.0f, this);
                 AddTaskToQueue(task);
