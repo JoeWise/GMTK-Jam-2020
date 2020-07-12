@@ -1862,6 +1862,11 @@ PrefabInstance:
       propertyPath: taskLength
       value: 12
       objectReference: {fileID: 0}
+    - target: {fileID: 5810183471682711626, guid: a1f4b17dc29522648bc7e14adf35d533,
+        type: 3}
+      propertyPath: prompts.Array.data[0]
+      value: Hey Timo, take a picture of my cat
+      objectReference: {fileID: 0}
     - target: {fileID: 5810183471682711627, guid: a1f4b17dc29522648bc7e14adf35d533,
         type: 3}
       propertyPath: m_Name
@@ -2222,30 +2227,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 5226328740299742506, guid: cfc607782d38c264b8581f7fde475c9e,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 6.3
-      objectReference: {fileID: 0}
-    - target: {fileID: 5226328740299742506, guid: cfc607782d38c264b8581f7fde475c9e,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 5.7
-      objectReference: {fileID: 0}
-    - target: {fileID: 5226328740299742517, guid: cfc607782d38c264b8581f7fde475c9e,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 5226328740315918003, guid: cfc607782d38c264b8581f7fde475c9e,
         type: 3}
       propertyPath: m_Name
       value: Medical Module
-      objectReference: {fileID: 0}
-    - target: {fileID: 5226328740315918003, guid: cfc607782d38c264b8581f7fde475c9e,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5226328740315918006, guid: cfc607782d38c264b8581f7fde475c9e,
         type: 3}
@@ -2301,66 +2286,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5226328740315918012, guid: cfc607782d38c264b8581f7fde475c9e,
-        type: 3}
-      propertyPath: prompts.Array.size
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 5226328740315918012, guid: cfc607782d38c264b8581f7fde475c9e,
-        type: 3}
-      propertyPath: odds
-      value: 400
-      objectReference: {fileID: 0}
-    - target: {fileID: 5226328740315918012, guid: cfc607782d38c264b8581f7fde475c9e,
-        type: 3}
-      propertyPath: prompts.Array.data[0]
-      value: Timo, what's on my arm?
-      objectReference: {fileID: 0}
-    - target: {fileID: 5226328740315918012, guid: cfc607782d38c264b8581f7fde475c9e,
-        type: 3}
-      propertyPath: prompts.Array.data[1]
-      value: Timo, what's on my leg?
-      objectReference: {fileID: 0}
-    - target: {fileID: 5226328740315918012, guid: cfc607782d38c264b8581f7fde475c9e,
-        type: 3}
-      propertyPath: prompts.Array.data[2]
-      value: Timo, what's on my foot?
-      objectReference: {fileID: 0}
-    - target: {fileID: 5226328740315918012, guid: cfc607782d38c264b8581f7fde475c9e,
-        type: 3}
-      propertyPath: prompts.Array.data[3]
-      value: Timo, what's on my hand?
-      objectReference: {fileID: 0}
-    - target: {fileID: 5226328740315918012, guid: cfc607782d38c264b8581f7fde475c9e,
-        type: 3}
-      propertyPath: prompts.Array.data[4]
-      value: Timo, what's on my face?
-      objectReference: {fileID: 0}
-    - target: {fileID: 5226328740315918012, guid: cfc607782d38c264b8581f7fde475c9e,
-        type: 3}
-      propertyPath: taskLength
-      value: 12
-      objectReference: {fileID: 0}
-    - target: {fileID: 7068992980392865514, guid: cfc607782d38c264b8581f7fde475c9e,
-        type: 3}
-      propertyPath: m_Mesh
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 7068992980643321009, guid: cfc607782d38c264b8581f7fde475c9e,
-        type: 3}
-      propertyPath: m_Mesh
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 7068992980837459072, guid: cfc607782d38c264b8581f7fde475c9e,
-        type: 3}
-      propertyPath: m_Mesh
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 7068992981162810408, guid: cfc607782d38c264b8581f7fde475c9e,
-        type: 3}
-      propertyPath: m_Mesh
-      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cfc607782d38c264b8581f7fde475c9e, type: 3}

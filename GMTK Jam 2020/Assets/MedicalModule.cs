@@ -16,6 +16,8 @@ public class MedicalModule : TimoModuleBase
     public GameObject choosing;
     public GameObject results;
 
+    public GameObject notFound;
+
     public string[] resultsStrings;
 
     int curr;
@@ -49,6 +51,8 @@ public class MedicalModule : TimoModuleBase
     {
         if (!taskInQueue)
         {
+            notFound.SetActive(true);
+
             int roll = Random.Range(1, odds);
             //Debug.Log("roll: " + roll.ToString());
 
@@ -64,6 +68,11 @@ public class MedicalModule : TimoModuleBase
         else
         {
             if(task.currState == Task.state.active)
+            {
+                notFound.SetActive(false);
+            }
+            
+            if (task.currState == Task.state.active)
             {
                 foreach (SpriteRenderer sr in spriteRenderers)
                 {
