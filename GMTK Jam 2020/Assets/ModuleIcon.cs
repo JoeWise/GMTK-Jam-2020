@@ -23,5 +23,7 @@ public class ModuleIcon : MonoBehaviour
     {
         window.SetActive(true);
         WindowManager.Instance.DisableIcons();
+
+        SFXManager.Instance.PlayIconSelected();
     }
 }

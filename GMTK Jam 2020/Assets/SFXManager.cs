@@ -10,6 +10,8 @@ public class SFXManager : Singleton<SFXManager>
     public AudioClip fail;
     public AudioClip succeed;
     public AudioClip newTask;
+    public AudioClip iconSelected;
+
 
 
     // Start is called before the first frame update
@@ -37,5 +39,10 @@ public class SFXManager : Singleton<SFXManager>
     public void PlayNewTask()
     {
         audioSource.PlayOneShot(newTask);
+    }
+
+    public void PlayIconSelected()
+    {
+        audioSource.PlayOneShot(iconSelected);
     }
 }
