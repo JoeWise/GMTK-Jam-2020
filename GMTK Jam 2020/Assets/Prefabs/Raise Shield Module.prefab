@@ -16,7 +16,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &7800053747221458469
 Transform:
   m_ObjectHideFlags: 0
@@ -46,7 +46,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   taskInQueue: 0
+  task:
+    prompt: 
+    length: 0
+    originatingModule: {fileID: 0}
+    completed: 0
+    currState: 0
   taskLength: 5
+  window: {fileID: 0}
   text: {fileID: 7800053748238732998}
   shieldUp: 0
 --- !u!1 &7800053747391444138

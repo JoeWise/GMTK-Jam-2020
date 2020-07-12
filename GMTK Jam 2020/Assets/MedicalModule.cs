@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class MedicalModule : TimoModuleBase
 {
+    public string[] prompts;
+
     public Sprite[] skinConditions;
 
     public GameObject[] sprites;
@@ -29,6 +31,13 @@ public class MedicalModule : TimoModuleBase
 
     public Task.state prevState = Task.state.waiting;
 
+    private void OnEnable()
+    {
+        CreateTask();
+
+        guess = -1;
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -40,7 +49,7 @@ public class MedicalModule : TimoModuleBase
     {
         if (!taskInQueue)
         {
-            int roll = Random.Range(1, 1000);
+            int roll = Random.Range(1, odds);
             //Debug.Log("roll: " + roll.ToString());
 
             if (roll == 50)
@@ -49,47 +58,7 @@ public class MedicalModule : TimoModuleBase
                 choosing.SetActive(true);
                 results.SetActive(false);
 
-                Debug.Log("Adding medical task");
-
-                foreach (SpriteRenderer sr in spriteRenderers)
-                {
-                    sr.enabled = false;
-                }
-
-
-                GenerateRandomNumbers();
-
-                // pick an example sprite from the list of all conditions
-                curr = randomConditionNumbers[0];
-
-                // set the example sprite
-                spriteRenderers[0].sprite = skinConditions[curr];
-                
-                // save the answer
-                answer = randomChoiceNumbers[0];
-                // set answer sprite to correct sprite
-                spriteRenderers[answer].sprite = skinConditions[curr];
-
-                // set other choices sprite to random conditions
-                spriteRenderers[randomChoiceNumbers[1]].sprite = skinConditions[randomConditionNumbers[1]];
-                spriteRenderers[randomChoiceNumbers[2]].sprite = skinConditions[randomConditionNumbers[2]];
-
-                guess = -1;
-
-                foreach(GameObject g in sprites)
-                {
-                    float x = g.transform.rotation.eulerAngles.x;
-                    float y = g.transform.rotation.eulerAngles.y;
-                    float z = Random.Range(1, 360);
-
-                    //g.transform.rotation.eulerAngles.Set(x, y, z);
-                    g.transform.Rotate(g.transform.forward, z);
-                }
-
-                string prompt = "Timo, what's on my arm?";
-
-                task = new Task(prompt, 10.0f, this);
-                AddTaskToQueue(task);
+                CreateTask();
             }
         }
         else
@@ -110,13 +79,55 @@ public class MedicalModule : TimoModuleBase
 
             prevState = task.currState;
         }
+    }
+
+    void CreateTask()
+    {
+        Debug.Log("Adding medical task");
+
+        foreach (SpriteRenderer sr in spriteRenderers)
+        {
+            sr.enabled = false;
+        }
 
 
+        GenerateRandomNumbers();
+
+        // pick an example sprite from the list of all conditions
+        curr = randomConditionNumbers[0];
+
+        // set the example sprite
+        spriteRenderers[0].sprite = skinConditions[curr];
+
+        // save the answer
+        answer = randomChoiceNumbers[0];
+        // set answer sprite to correct sprite
+        spriteRenderers[answer].sprite = skinConditions[curr];
+
+        // set other choices sprite to random conditions
+        spriteRenderers[randomChoiceNumbers[1]].sprite = skinConditions[randomConditionNumbers[1]];
+        spriteRenderers[randomChoiceNumbers[2]].sprite = skinConditions[randomConditionNumbers[2]];
+
+        guess = -1;
+
+        foreach (GameObject g in sprites)
+        {
+            float x = g.transform.rotation.eulerAngles.x;
+            float y = g.transform.rotation.eulerAngles.y;
+            float z = Random.Range(1, 360);
+
+            //g.transform.rotation.eulerAngles.Set(x, y, z);
+            g.transform.Rotate(g.transform.forward, z);
+        }
+
+        string prompt = prompts[Random.Range(0, prompts.Length)];
+
+        task = new Task(prompt, taskLength, this);
+        AddTaskToQueue(task);
     }
 
     void GenerateRandomNumbers()
     {
-
         choiceNumbers = new List<int>(3);
         for (int i = 1; i <= 3; i++)
         {
@@ -187,7 +198,7 @@ public class MedicalModule : TimoModuleBase
 
         results.SetActive(true);
 
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(0.5f);
 
         results.SetActive(false);
         choosing.SetActive(true);

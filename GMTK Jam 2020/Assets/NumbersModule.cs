@@ -17,6 +17,11 @@ public class NumbersModule : TimoModuleBase
 
     public string lastNumber = "";
 
+    private void OnEnable()
+    {
+        CreateTask();
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -28,17 +33,12 @@ public class NumbersModule : TimoModuleBase
     {
         if (!taskInQueue)
         {
-            float roll = Random.Range(1, 1000);
+            float roll = Random.Range(1, odds);
             //Debug.Log("roll: " + roll.ToString());
 
             if (roll == 50)
             {
-                Debug.Log("Adding number task");
-
-                curr = promptsAndAnswers[Random.Range(0, promptsAndAnswers.Length)];
-
-                task = new Task(curr.prompt, taskLength, this);
-                AddTaskToQueue(task);
+                CreateTask();
             }
         }
         else
@@ -48,6 +48,16 @@ public class NumbersModule : TimoModuleBase
                 OnTaskSatisfied();
             }
         }
+    }
+
+    void CreateTask()
+    {
+        Debug.Log("Adding number task");
+
+        curr = promptsAndAnswers[Random.Range(0, promptsAndAnswers.Length)];
+
+        task = new Task(curr.prompt, taskLength, this);
+        AddTaskToQueue(task);
     }
 
     public void SetLastNumber(string n)

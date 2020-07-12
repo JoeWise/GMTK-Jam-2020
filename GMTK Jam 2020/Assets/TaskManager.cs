@@ -104,11 +104,37 @@ public class TaskManager : Singleton<TaskManager>
 
     public void updateScoreText()
     {
-        string scoreText = "Completed: " + completed.ToString() + "\nBest: " + best.ToString() + "\nFailed: " + failed.ToString();
+        string scoreText = "Completed: " + completed.ToString() + "\n\nBest: " + best.ToString() + "\n\nFailed: " + failed.ToString();
 
         score.text = scoreText;
     }
 
+    public void ResetValues()
+    {
+        completed = 0;
+        failed = 0;
+
+        updateScoreText();
+    }
+
+    public void ClearTasks()
+    {
+        Debug.Log("clearing tasks");
+
+        for (int i = 0; i < currentTasks.Length; i++)
+        {
+            //currentTasks[i].currState = Task.state.fail;
+
+            ////remove the task
+            //currentTasks[i].originatingModule.SetTaskInQueue(false);
+
+            currentTasks[i] = null;
+            taskTexts[i].text = "";
+
+            //remove timer
+            taskTimers[i].gameObject.SetActive(false);
+        }
+    }
 }
 
 [System.Serializable]

@@ -9,6 +9,11 @@ public class LightsModule : TimoModuleBase
     LightSwitch curr;
     string goalState;
 
+    private void OnEnable()
+    {
+        CreateTask();
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -20,29 +25,12 @@ public class LightsModule : TimoModuleBase
     {
         if (!taskInQueue)
         {
-            float roll = Random.Range(1, 1000);
+            float roll = Random.Range(1, odds);
             //Debug.Log("roll: " + roll.ToString());
 
             if (roll == 50)
             {
-                Debug.Log("Adding lights task");
-
-                curr = switches[Random.Range(0, switches.Length)];
-
-                
-                if(curr.on)
-                {
-                    goalState = "off";
-                }
-                else
-                {
-                    goalState = "on";
-                }
-
-                string prompt = "Timo, turn " + curr.GetLabel() + " light " + goalState;
-
-                task = new Task(prompt, 10.0f, this);
-                AddTaskToQueue(task);
+                CreateTask();
             }
         }
         else
@@ -56,5 +44,27 @@ public class LightsModule : TimoModuleBase
                 OnTaskSatisfied();
             }
         }
+    }
+
+    void CreateTask()
+    {
+        Debug.Log("Adding lights task");
+
+        curr = switches[Random.Range(0, switches.Length)];
+
+
+        if (curr.on)
+        {
+            goalState = "off";
+        }
+        else
+        {
+            goalState = "on";
+        }
+
+        string prompt = "Timo, turn " + curr.GetLabel() + " light " + goalState;
+
+        task = new Task(prompt, taskLength, this);
+        AddTaskToQueue(task);
     }
 }

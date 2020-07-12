@@ -8,6 +8,7 @@ public class TimoModuleBase : MonoBehaviour
     public Task task;
     public float taskLength = 5.0f;
     public Window window;
+    public int odds = 500;
 
     // Start is called before the first frame update
     void Start()

@@ -8,6 +8,11 @@ public class MusicModule : TimoModuleBase
 
     public string[] prompts;
 
+    private void OnEnable()
+    {
+        CreateTask();
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -19,20 +24,12 @@ public class MusicModule : TimoModuleBase
     {
         if (!taskInQueue)
         {
-            float roll = Random.Range(1, 1000);
+            float roll = Random.Range(1, odds);
             //Debug.Log("roll: " + roll.ToString());
 
             if (roll == 50)
             {
-                Debug.Log("Adding music task");
-
-                string prompt = prompts[Random.Range(0, prompts.Length)];
-
-                task = new Task(prompt, 10.0f, this);
-                AddTaskToQueue(task);
-
-
-                PianoKey.keyStrikes = 0;
+                CreateTask();
             }
         }
         else
@@ -42,6 +39,19 @@ public class MusicModule : TimoModuleBase
                 OnTaskSatisfied();
             }
         }
+    }
+
+    void CreateTask()
+    {
+        Debug.Log("Adding music task");
+
+        string prompt = prompts[Random.Range(0, prompts.Length)];
+
+        task = new Task(prompt, taskLength, this);
+        AddTaskToQueue(task);
+
+
+        PianoKey.keyStrikes = 0;
     }
 
     public void OnWindowClose()
