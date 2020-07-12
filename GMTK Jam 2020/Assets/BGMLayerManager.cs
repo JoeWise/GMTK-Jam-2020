@@ -5,8 +5,6 @@ using UnityEngine.Audio;
 
 public class BGMLayerManager : MonoBehaviour
 {
-    public GameObject TaskManager;
-
     public int audioState;
 
     public AudioMixer mixer;
@@ -20,7 +18,7 @@ public class BGMLayerManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        audioState = TaskManager.GetComponent<TaskManager>().failed;
+        audioState = TaskManager.Instance.failed;
         switch (audioState)
         {
             case 0:

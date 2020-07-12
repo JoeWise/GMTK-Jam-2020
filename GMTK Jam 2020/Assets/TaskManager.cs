@@ -45,6 +45,8 @@ public class TaskManager : Singleton<TaskManager>
                 taskTimers[i].gameObject.SetActive(true);
                 taskTimers[i].ResetTimer();
                 taskTimers[i].StartCountdown(currentTasks[i].length);
+
+                SFXManager.Instance.PlayNewTask();
             }
 
             // check if there are any filled slots that we can empty
@@ -73,6 +75,8 @@ public class TaskManager : Singleton<TaskManager>
                     }
 
                     updateScoreText();
+
+                    SFXManager.Instance.PlaySucceed();
                 }
                 //if time ran out
                 else if(taskTimers[i].finished)
@@ -91,7 +95,8 @@ public class TaskManager : Singleton<TaskManager>
                     //update fail count
                     failed += 1;
                     updateScoreText();
-                    
+
+                    SFXManager.Instance.PlayFail();
                 }
             }
         }
