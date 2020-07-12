@@ -1714,7 +1714,7 @@ MonoBehaviour:
   fail: {fileID: 8300000, guid: 636f511c4fc94524f8ecd81e832f6bca, type: 3}
   succeed: {fileID: 8300000, guid: b1ec39a57fd92e545950411e30f100c3, type: 3}
   newTask: {fileID: 8300000, guid: 08f6f5a2d2e0d3142998244166f75a8e, type: 3}
-  iconSelected: {fileID: 0}
+  iconSelected: {fileID: 8300000, guid: cb2f44202ac53ed46957f5316291600d, type: 3}
 --- !u!114 &1717783970
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2181,11 +2181,26 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 2.52
       objectReference: {fileID: 0}
+    - target: {fileID: 5721577127368432100, guid: df5ff291d405a0a4b9ff032a7175069e,
+        type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 2100000, guid: fd1e1aa78429bb745bed01d15d6ab017, type: 2}
+    - target: {fileID: 5721577127368432101, guid: df5ff291d405a0a4b9ff032a7175069e,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 5.62
+      objectReference: {fileID: 0}
     - target: {fileID: 5721577127368432102, guid: df5ff291d405a0a4b9ff032a7175069e,
         type: 3}
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 5721577127368432105, guid: df5ff291d405a0a4b9ff032a7175069e,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: fd1e1aa78429bb745bed01d15d6ab017, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: df5ff291d405a0a4b9ff032a7175069e, type: 3}
 --- !u!1 &6647293788807237461 stripped
